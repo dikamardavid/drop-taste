@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drop Taste</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0B0F17;
+      color: #F8FAFC;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #1E293B;
+      margin-bottom: 14px;
+    }
+    .logo-badge {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #6366F1, #8B5CF6);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .header-text h1 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .header-text p {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #161F30;
+      color: #F8FAFC;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: left;
+      transition: all 0.15s ease;
+    }
+    .btn:hover {
+      background: #1E293B;
+      border-color: #6366F1;
+      transform: translateY(-1px);
+    }
+    .btn-icon {
+      font-size: 18px;
+    }
+    .btn-title {
+      font-weight: 600;
+      display: block;
+    }
+    .btn-subtitle {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .status-msg {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #10B981;
+      text-align: center;
+      display: none;
+    }
+    .footer {
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px solid #1E293B;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer a {
+      color: #818CF8;
+      font-size: 11px;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-badge">DT</div>
+    <div class="header-text">
+      <h1>Drop Taste Capture</h1>
+      <p>Agentic Design Intelligence</p>
+    </div>
+  </div>
+
+  <div class="menu">
+    <button class="btn" id="btnCapturePage">
+      <span class="btn-icon">📄</span>
+      <div>
+        <span class="btn-title">1. Capture Page</span>
+        <span class="btn-subtitle">Scan entire page layout for Figma paste</span>
+      </div>
+    </button>
+
+    <button class="btn" id="btnCaptureElement">
+      <span class="btn-icon">🔍</span>
+      <div>
+        <span class="btn-title">2. Capture Element</span>
+        <span class="btn-subtitle">Hover inspector for component / image reference</span>
+      </div>
+    </button>
+  </div>
+
+  <div class="status-msg" id="statusMsg"></div>
+
+  <div class="footer">
+    <span style="font-size:11px;color:#64748B;">v1.0.0</span>
+    <a href="http://localhost:3000/library" target="_blank">Open Library ↗</a>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

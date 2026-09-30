@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Drop Taste - Agentic Design Ingestion",
+  "version": "1.0.0",
+  "description": "Capture web pages, components, and image design references directly into your Drop Taste library.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Drop Taste Capture"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/hover-inspector.js"]
+    }
+  ]
+}
