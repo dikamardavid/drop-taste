@@ -1,37 +1,44 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar.js';
+import { LandingPage } from './pages/LandingPage.js';
+import { AuthPage } from './pages/AuthPage.js';
 import { LibraryPage } from './pages/LibraryPage.js';
-import { DetailPage } from './pages/DetailPage.js';
 import { ConnectPage } from './pages/ConnectPage.js';
+import { AccountPage } from './pages/AccountPage.js';
 
 export const App: React.FC = () => {
-  const [currentTab, setCurrentTab] = useState<'library' | 'connect'>('library');
-  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<string>('landing');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true); // default true for instant dev access
 
-  const handleSelectItem = (id: string) => {
-    setSelectedItemId(id);
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleBackToLibrary = () => {
-    setSelectedItemId(null);
+  const handleAuthSuccess = () => {
+    setIsAuthenticated(true);
+    setCurrentPage('library');
   };
 
-  const handleTabChange = (tab: 'library' | 'connect') => {
-    setCurrentTab(tab);
-    setSelectedItemId(null);
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setCurrentPage('landing');
   };
 
   return (
     <div>
-      <Navbar currentTab={currentTab} onTabChange={handleTabChange} />
+      <Navbar
+        currentTab={currentPage}
+        isAuthenticated={isAuthenticated}
+        onTabChange={handleNavigate}
+        onLogout={handleLogout}
+      />
       <main>
-        {currentTab === 'connect' ? (
-          <ConnectPage />
-        ) : selectedItemId ? (
-          <DetailPage itemId={selectedItemId} onBack={handleBackToLibrary} />
-        ) : (
-          <LibraryPage onSelectItem={handleSelectItem} />
-        )}
+        {currentPage === 'landing' && <LandingPage onNavigate={handleNavigate} />}
+        {currentPage === 'auth' && <AuthPage onSuccess={handleAuthSuccess} />}
+        {currentPage === 'library' && <LibraryPage />}
+        {currentPage === 'connect' && <ConnectPage />}
+        {currentPage === 'account' && <AccountPage onLogout={handleLogout} />}
       </main>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CaptureDetailModal } from '../components/CaptureDetailModal.js';
 
 export interface CaptureSummary {
   id: string;
@@ -14,15 +15,12 @@ export interface CaptureSummary {
   createdAt: string;
 }
 
-interface LibraryPageProps {
-  onSelectItem: (id: string) => void;
-}
-
-export const LibraryPage: React.FC<LibraryPageProps> = ({ onSelectItem }) => {
+export const LibraryPage: React.FC = () => {
   const [items, setItems] = useState<CaptureSummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedType, setSelectedType] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeModalItemId, setActiveModalItemId] = useState<string | null>(null);
 
   const fetchItems = async () => {
     setLoading(true);
@@ -126,7 +124,7 @@ export const LibraryPage: React.FC<LibraryPageProps> = ({ onSelectItem }) => {
       ) : (
         <div className="bento-grid">
           {items.map((item) => (
-            <div key={item.id} className="card" onClick={() => onSelectItem(item.id)}>
+            <div key={item.id} className="card" onClick={() => setActiveModalItemId(item.id)}>
               <div className="card-preview">
                 <span className={`card-badge ${item.type}`}>
                   {item.type === 'page' ? 'Page' : item.type === 'component' ? 'Component' : 'Image Reference'}
@@ -167,6 +165,16 @@ export const LibraryPage: React.FC<LibraryPageProps> = ({ onSelectItem }) => {
             </div>
           ))}
         </div>
+      )}
+
+      {/* Full Screen Detail Modal with Left/Right Navigation */}
+      {activeModalItemId && (
+        <CaptureDetailModal
+          itemId={activeModalItemId}
+          allItems={items.map((it) => ({ id: it.id, title: it.title }))}
+          onClose={() => setActiveModalItemId(null)}
+          onNavigateItem={(nextId) => setActiveModalItemId(nextId)}
+        />
       )}
     </div>
   );
