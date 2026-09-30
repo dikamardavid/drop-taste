@@ -1,16 +1,27 @@
-# UX-04 — Web Dashboard: Contextual Detail Page (Figma Copy vs Agent Reference)
+# UX: Web — Capture Detail Page (Full Screen Modal with Prev/Next Navigation)
 
 **What to build:**
-Desain halaman detail referensi yang menerapkan diferensiasi aksi secara tegas:
-1. **Untuk Aset Page & Component:** Menyediakan tombol aksi primer **"Copy to Figma"** (dengan transisi state visual ke `Copied! Paste with Cmd+V in Figma`).
-2. **Untuk Aset Image Reference:** Menyediakan tombol aksi primer **"Reference this with your agent"** (dengan transisi state visual ke `Copied! Paste into Cursor/Claude`). Halaman ini **TIDAK** menampilkan tombol Copy to Figma.
-Layout mencakup workspace pratinjau (Visual Preview, Canonical `design.md` viewer dengan tabel token warna & font, serta DOM source) di sisi kiri, dan panel metadata serta box helper *"Agent Quick Paste"* di sisi kanan.
+Desain antarmuka modal layar penuh (Full Screen Modal Overlay) untuk melihat detail referensi langsung di atas Taste Library:
+- **Navigasi Kiri / Kanan (Prev / Next Carousel):**
+  - Tombol panah `← Prev` dan `Next →` serta indikator posisi (misal: "3 of 12").
+  - Dukungan navigasi keyboard panah kiri/kanan (`ArrowLeft` / `ArrowRight`) untuk berpindah referensi tanpa menutup modal.
+  - Tombol tutup modal `✕` dan shortcut `Esc`.
+- **Sisi Kiri (Preview Area):**
+  - Visual preview resolusi tinggi / Render DOM frame.
+  - Tabs: Viewer dokumen kanonikal `design.md` (tabel token warna HEX, skala tipografi, spacing, layout tree, code template) untuk gambar, atau DOM source untuk komponen/halaman.
+- **Sisi Kanan (Detail Fields yang ditangkap ekstensi):**
+  - Badge tipe (`Page Capture` / `Component` / `Image Reference`) + resolusi dimensi (`W × H px`).
+  - Judul referensi, link domain asal (clickable external link), tanggal/waktu capture, kategori, dan tag chips.
+  - **Aksi Sesuai Kesepakatan Awal:**
+    - Jika Page atau Component $\rightarrow$ Tombol primer **"Copy to Figma"** (state berubah ke `Copied! Paste with Cmd+V in Figma`).
+    - Jika Image Reference $\rightarrow$ Tombol primer **"Reference this with your agent"** (state berubah ke `Copied! Paste into Cursor/Claude`, TANPA tombol Copy to Figma).
+  - Box helper "Agent Reference Command" berisi prompt template aman anti-injection.
 
-**Blocked by:** UX-03 — Web Dashboard: Taste Library Gallery & Bento Grid.
-
+**Assignee:** GoreGadget
 **Status:** ready-for-agent
 
-- [ ] Layout dua kolom (Kiri: Viewer konten/spesifikasi; Kanan: Metadata & panel instruksi agent).
-- [ ] Varian tombol aksi primer khusus: "Copy to Figma" untuk Page/Component dan "Reference this with your agent" untuk Image.
-- [ ] Desain tampilan pembaca `design.md` terstruktur: Swatch tabel palet warna, tipografi, spacing, diagram hierarki, dan syntax highlighting code block.
-- [ ] Box helper "Agent Quick Paste" dengan tampilan command snippet dan banner penjelasan anti-prompt injection.
+- [ ] Desain modal layar penuh (Full Screen Modal Overlay) di atas galeri library.
+- [ ] Kontrol navigasi panah kiri (`← Prev`) dan kanan (`Next →`) di top bar modal.
+- [ ] Workspace sisi kiri dengan tab switch antara Visual Preview dan Canonical `design.md` Viewer.
+- [ ] Panel sisi kanan menampilkan field tangkapan lengkap dari ekstensi.
+- [ ] Varian tombol aksi primer kontekstual: "Copy to Figma" untuk Page/Component dan "Reference this with your agent" untuk Image Reference.

@@ -6,18 +6,23 @@
 
 ---
 
-## 🎨 Jalur 1: UI/UX Designer Backlog
+## 🎨 Jalur 1: UI/UX Designer Backlog (GoreGadget)
 
-| Multica Key | No. Tiket | Judul & Lingkup Desain | Assignee | Priority | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **`GORE-120`** | **UX-01** | **Design System & Design Tokens Foundation**<br>Palet warna Dark mode (Canvas `#090D16`, Surface, Accent Indigo `#6366F1`), Skala tipografi, Spacing 4/8/12/16/24/48px, Corner radius scale, dan Komponen Atomik. | **GoreGadget** | `high` | `backlog` |
-| **`GORE-121`** | **UX-02** | **Chrome Extension UI & In-Page Overlay**<br>Frame popup (320px) dengan Menu 1 & 2. In-page hover inspector highlight box (badge `<tag> W×H px`), modal klasifikasi in-page, dan toast feedback. | **GoreGadget** | `high` | `backlog` |
-| **`GORE-122`** | **UX-03** | **Web Dashboard: Taste Library Gallery & Bento Grid**<br>Navbar brand & tabs, filter bar (pencarian, dropdown kategori, pills tipe), dan kartu bento grid galeri referensi. | **GoreGadget** | `high` | `backlog` |
-| **`GORE-123`** | **UX-04** | **Web Dashboard: Contextual Detail Page (Figma Copy vs Agent Reference)**<br>Diferensiasi aksi nyata:<br>• *Page/Component*: Tombol primer **"Copy to Figma"**.<br>• *Image Reference*: Tombol primer **"Reference this with your agent"** *(tanpa Copy to Figma)*. | **GoreGadget** | `high` | `backlog` |
-| **`GORE-124`** | **UX-05** | **Web Dashboard: Connect Hub (Agent Audit & Token Revocation)**<br>Panduan konfigurasi interaktif MCP, generator Personal Access Token, tabel status token dengan tombol *Revoke Access*, dan tabel audit sesi agen real-time. | **GoreGadget** | `medium` | `backlog` |
-| **`GORE-125`** | **UX-06** | **Figma Plugin UI: Library Browser & Auto-Layout Inserter**<br>Desain panel plugin Figma ukuran standar (360 × 560px), kartu referensi ringkas dengan drag handles, status login, dan tombol aksi *"Insert to Canvas"*. | **GoreGadget** | `high` | `backlog` |
-| **`GORE-126`** | **UX-07** | **Figma Plugin UI: "Blend with Drop Taste" Modal Prompt Box**<br>Modal prompt box di dalam Figma: Pill frame yang sedang dipilih di canvas, selector referensi acuan sekunder, textarea instruksi blending, dan runtime status. | **GoreGadget** | `medium` | `backlog` |
-| **`GORE-127`** | **UX-08** | **Complete Clickable Prototype & Handoff Spec**<br>Prototipe interaktif di Figma menghubungkan alur: Browser Extension $\rightarrow$ Dashboard Library $\rightarrow$ Detail Page $\rightarrow$ Canvas Figma Plugin. | **GoreGadget** | `high` | `backlog` |
+Daftar tiket desain antarmuka lengkap untuk dieksekusi di Figma oleh **GoreGadget**, tersinkronisasi antara **Multica** dan **GitHub Issues**:
+
+| Multica Key | GitHub Issue | Kode & Judul Tiket | Assignee | Deliverables Utama di Figma |
+| :--- | :--- | :--- | :--- | :--- |
+| **`GORE-120`** | [#15](https://github.com/dikamardavid/drop-taste/issues/15) | **UX-01: Design System & Design Tokens Foundation** | **GoreGadget** | Variable Collections (Colors, Typo, Spacing 4/8/16/24/48px, Radius) & Component Library |
+| **`GORE-121`** | [#16](https://github.com/dikamardavid/drop-taste/issues/16) | **UX-02: Chrome Extension UI & In-Page Overlay** | **GoreGadget** | Frame Popup (320px), Hover Inspector Overlay (W×H badge), Modal In-page, Toast feedback |
+| **`GORE-137`** | [#17](https://github.com/dikamardavid/drop-taste/issues/17) | **UX-03: Web — Public Landing Page** | **GoreGadget** | Top Bar, Hero Section, How It Works (3 Steps), Pricing Table (Free vs Pro), Download CTA |
+| **`GORE-138`** | [#18](https://github.com/dikamardavid/drop-taste/issues/18) | **UX-04: Web — Sign In & Sign Up Authentication Pages** | **GoreGadget** | Centered Auth Card, Tab Switcher Sign In / Sign Up, Validasi form, Background micro-glow |
+| **`GORE-122`** | [#19](https://github.com/dikamardavid/drop-taste/issues/19) | **UX-05: Web Dashboard — Taste Library Gallery & Bento Grid** | **GoreGadget** | Top Filter Bar, Tab Tipe (*All, Page, Component, Image*), Bento Grid Cards, Hover & Empty state |
+| **`GORE-123`** | [#20](https://github.com/dikamardavid/drop-taste/issues/20) | **UX-06: Web Dashboard — Capture Detail Page (Full Screen Modal)** | **GoreGadget** | Modal Full Screen, Navigasi Carousel Panah Kiri (`← Prev`) & Kanan (`Next →`), Split Preview & Fields |
+| **`GORE-139`** | [#21](https://github.com/dikamardavid/drop-taste/issues/21) | **UX-07: Web — Account & Subscription Settings Page** | **GoreGadget** | Current Plan Card + Upgrade CTA, Connected History Audit Table, Danger Zone (Delete Account, Logout) |
+| **`GORE-124`** | [#22](https://github.com/dikamardavid/drop-taste/issues/22) | **UX-08: Web Dashboard — Connect Hub (Agent Audit & Token Revocation)** | **GoreGadget** | MCP Guide Cards (Claude/Antigravity), PAT Generator, Tabel Active Tokens & Revoke Modal |
+| **`GORE-125`** | [#23](https://github.com/dikamardavid/drop-taste/issues/23) | **UX-09: Figma Plugin UI — Library Browser & Auto-Layout Inserter** | **GoreGadget** | Panel Plugin (360 × 560px), Compact Cards dengan drag handle, Insert to Canvas trigger |
+| **`GORE-126`** | [#24](https://github.com/dikamardavid/drop-taste/issues/24) | **UX-10: Figma Plugin UI — 'Blend with Drop Taste' Modal Prompt Box** | **GoreGadget** | Modal Dialog Blend, Active Frame Pill, Selector referensi, Runtime Status (`localhost:3847`), Loading |
+| **`GORE-127`** | [#25](https://github.com/dikamardavid/drop-taste/issues/25) | **UX-11: Complete Clickable Prototype & Handoff Spec** | **GoreGadget** | Interactive Clickable Prototype menghubungkan Extension $\rightarrow$ Web $\rightarrow$ Figma, Developer Handoff Docs |
 
 ---
 
